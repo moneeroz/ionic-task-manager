@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Itask } from 'src/app/interfaces/itask';
 import { TasksService } from 'src/app/services/tasks.service';
@@ -9,7 +10,7 @@ import { TasksService } from 'src/app/services/tasks.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
   standalone: true,
-  imports: [IonicModule, DatePipe],
+  imports: [IonicModule, DatePipe, RouterModule],
 })
 export class TaskComponent {
   @Input() task!: Itask;
