@@ -27,6 +27,17 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-item>
+          <ion-icon
+            aria-hidden="true"
+            slot="start"
+            ios="skull-outline"
+            md="skull-sharp"
+          ></ion-icon>
+          <ion-toggle (ionChange)="toggleTheme($event)"
+            >Join the dark side</ion-toggle
+          >
+        </ion-item>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

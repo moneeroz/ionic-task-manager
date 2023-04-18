@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { ThemeService } from './services/theme.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,5 +15,20 @@ export class AppComponent {
     { title: 'All Tasks', url: 'tasks', icon: 'reader' },
     { title: 'New Task', url: 'add-task', icon: 'create' },
   ];
-  constructor() {}
+
+  constructor(private themeService: ThemeService) {
+    this.ionViewWillEnter();
+  }
+
+  ionViewWillEnter() {
+    this.themeService.checkTheme();
+  }
+
+  toggleTheme(event: any) {
+    console.log(event.detail.checked);
+    if (event.detail.checked) {
+      return this.themeService.toggleDarkTheme(true);
+    }
+    return this.themeService.toggleDarkTheme(false);
+  }
 }
