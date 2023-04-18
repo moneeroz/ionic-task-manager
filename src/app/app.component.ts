@@ -10,6 +10,9 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterLink, RouterLinkActive, CommonModule],
 })
 export class AppComponent {
-  public appPages = [{ title: 'Inbox', url: '/folder/inbox', icon: 'mail' }];
+  public appPages = [
+    { title: 'All Tasks', url: 'tasks', icon: 'reader' },
+    { title: 'New Task', url: 'add-task', icon: 'create' },
+  ];
   constructor() {}
 }

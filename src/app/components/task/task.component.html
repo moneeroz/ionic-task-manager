@@ -6,11 +6,11 @@
 
   <ion-card-content>
     <p>{{ task.description }}</p>
-    <p>{{ task.task_date }}</p>
+    <p>{{ task.task_date | date }}</p>
     <p>Catagory: {{ task.catagory }}</p>
     <p>Progress: {{ task.progress_level }}</p>
   </ion-card-content>
 
-  <ion-button fill="clear">Action 1</ion-button>
-  <ion-button fill="clear">Action 2</ion-button>
+  <ion-button fill="clear">Edit</ion-button>
+  <ion-button fill="clear">Delete</ion-button>
 </ion-card>
