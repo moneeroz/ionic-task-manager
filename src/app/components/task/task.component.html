@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ task.title }}</ion-card-title>
+    <ion-card-subtitle>{{ task.priority_level }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{ task.description }}</p>
+    <p>{{ task.task_date }}</p>
+    <p>Catagory: {{ task.catagory }}</p>
+    <p>Progress: {{ task.progress_level }}</p>
+  </ion-card-content>
+
+  <ion-button fill="clear">Action 1</ion-button>
+  <ion-button fill="clear">Action 2</ion-button>
+</ion-card>

@@ -1,0 +1,11 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tasks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngFor="let task of tasks">
+    <app-task [task]="task" (deleteEvent)="onDelete($event)"></app-task>
+  </div>
+</ion-content>
