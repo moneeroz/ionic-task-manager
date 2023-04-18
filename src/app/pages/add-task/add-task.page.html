@@ -47,6 +47,7 @@
             <ion-datetime
               id="datetime"
               formControlName="task_date"
+              hourCycle="h12"
             ></ion-datetime>
           </ng-template>
         </ion-modal>
@@ -123,9 +124,26 @@
       (click)="onSubmit()"
       type="button"
       [disabled]="taskForm.invalid"
+      color="dark"
+      expand="block"
+      fill="clear"
+      id="form-button"
     >
       <span *ngIf="editMode; else editButtonText">Edit Task</span>
       <ng-template #editButtonText>Add Task</ng-template>
     </ion-button>
+
+    <ion-toast
+      *ngIf="!editMode"
+      trigger="form-button"
+      message="Task added succussfully!"
+      [duration]="3000"
+    ></ion-toast>
+    <ion-toast
+      *ngIf="editMode"
+      trigger="form-button"
+      message="Task updated succussfully!"
+      [duration]="3000"
+    ></ion-toast>
   </form>
 </ion-content>

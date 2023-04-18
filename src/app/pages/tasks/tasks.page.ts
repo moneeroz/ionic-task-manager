@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { TaskComponent } from 'src/app/components/task/task.component';
 import { Itask } from 'src/app/interfaces/itask';
 import { TasksService } from 'src/app/services/tasks.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-tasks',
@@ -13,12 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [IonicModule, TaskComponent, NgFor],
 })
-export class TasksPage implements OnInit {
+export class TasksPage {
   tasks: Itask[] = [];
 
   constructor(private service: TasksService) {}
 
-  ngOnInit(): void {
+  ionViewWillEnter() {
     this.service.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 

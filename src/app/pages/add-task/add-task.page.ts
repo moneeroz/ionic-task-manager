@@ -31,10 +31,7 @@ export class AddTaskPage {
     this.taskForm = formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      task_date: [
-        new Date('2023-04-19T18:03:40.887').toJSON(),
-        Validators.required,
-      ],
+      task_date: [new Date('').toJSON(), Validators.required],
       catagory: ['', Validators.required],
       priority_level: ['', Validators.required],
       progress_level: ['', Validators.required],
@@ -85,18 +82,13 @@ export class AddTaskPage {
     if (this.editMode) {
       this.tasksService
         .editTask(this.editTaskId, task_data)
-        .subscribe((result) => {
-          console.log(result);
-          alert('Task updated successfully!');
-        });
+        .subscribe((result) => console.log(result));
     } else {
       this.tasksService
         .createTask(task_data)
         .subscribe((result) => console.log(result));
 
       this.taskForm.reset();
-
-      alert('Task added successfully');
     }
 
     this.route.navigateByUrl('tasks');
