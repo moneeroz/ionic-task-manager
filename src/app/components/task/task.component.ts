@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
@@ -10,7 +10,7 @@ import { TasksService } from 'src/app/services/tasks.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
   standalone: true,
-  imports: [IonicModule, DatePipe, RouterModule],
+  imports: [IonicModule, DatePipe, RouterModule, NgClass],
 })
 export class TaskComponent {
   @Input() task!: Itask;
@@ -19,6 +19,20 @@ export class TaskComponent {
 
   constructor(private tasksService: TasksService) {}
 
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {},
+    },
+    {
+      text: 'YES',
+      role: 'confirm',
+      handler: () => {
+        // this.onDelete(this.task.id);
+      },
+    },
+  ];
   onDelete(task_id: string) {
     if (confirm(`Are you sure you want to delete ${this.task.title} Task?`)) {
       this.tasksService

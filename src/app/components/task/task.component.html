@@ -1,7 +1,15 @@
 <ion-card>
   <ion-card-header>
     <ion-card-title>{{ task.title }}</ion-card-title>
-    <ion-card-subtitle>{{ task.priority_level }}</ion-card-subtitle>
+    <ion-card-subtitle
+      [ngClass]="{
+        secondary: task.priority_level === 'low',
+        success: task.priority_level === 'medium',
+        warning: task.priority_level === 'high',
+        danger: task.priority_level === 'critical'
+      }"
+      >{{ task.priority_level }}</ion-card-subtitle
+    >
   </ion-card-header>
 
   <ion-card-content>
@@ -14,7 +22,24 @@
   <ion-button fill="clear" [routerLink]="['/update-task', task.id]"
     >Edit</ion-button
   >
-  <ion-button fill="clear" color="danger" (click)="onDelete(task.id)"
+  <ion-button
+    id="delete-task"
+    (click)="onDelete(task.id)"
+    fill="clear"
+    color="danger"
     >Delete</ion-button
   >
 </ion-card>
+
+<!-- <ion-alert
+    trigger="delete-task"
+    subHeader="Important message"
+    message="Are you sure you want to delete {{ task.title }} task?"
+    [buttons]="alertButtons"
+  ></ion-alert>
+
+  <ion-toast
+    trigger="delete-task"
+    message="Task deleted succussfully!"
+    [duration]="3000"
+  ></ion-toast> -->
