@@ -1,15 +1,15 @@
 .secondary {
-  color: #3dc2ff;
+  color: var(--ion-color-secondary);
 }
 
 .warning {
-  color: #ffc409;
+  color: var(--ion-color-warning);
 }
 
 .success {
-  color: #2dd36f;
+  color: var(--ion-color-success);
 }
 
 .danger {
-  color: #eb445a;
+  color: var(--ion-color-danger);
 }
